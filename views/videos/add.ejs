@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2><i class="fa fa-fw fa-lg fa-film"></i> Add a new video</h2>
+        <hr/>
+        <form action="/videos/add" method="POST" data-validator="true">
+          <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+          <% include ../partials/video/form %>
+          <div class="form-group text-right">
+            <button type="submit" class="btn btn-lg btn-primary"><i class="fa fa-lg fa-fw fa-plus-circle"></i> Add video</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

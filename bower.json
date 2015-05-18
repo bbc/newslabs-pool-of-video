@@ -1,0 +1,19 @@
+{
+  "name": "vindex",
+  "version": "0.0.0",
+  "authors": [
+    "<iain.collins@bbc.co.uk>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bbcnewslabs-internal-bootstrap": "https://github.com/BBC-News-Labs/bbcnewslabs-internal-bootstrap.git#master",
+    "font-awesome": "~4.3.0"
+  }
+}

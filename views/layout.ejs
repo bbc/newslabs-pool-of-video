@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="">
+    <title><%= title %></title>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <%- css('application') %>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script>
+      document.documentElement.className = document.documentElement.className.replace("no-js","js");
+    </script>
+  </head>
+  <body>
+    <% include partials/navbar %>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h1>Pool of Video <br class="visible-xs visible-sm"/><small>A searchable index of videos</small></h1>
+        </div>
+        <div class="col-sm-4">
+          <br/>
+          <form action="/videos/search" method="GET">
+             <div class="input-group input-group-lg">
+                 <input name="q" type="search" placeholder="Search videos" class="form-control" />
+                 <div class="input-group-btn">
+                   <button type="submit" class="btn btn-info">
+                     <i class="fa fa-fw fa-search"></i>
+                   </button>
+                 </div>
+             </div>
+          </form>
+        </div>
+      </div>
+      <hr/>
+      <% include partials/flash %>
+      <%- body %>
+    </div>
+    
+    <div class="container">
+      <div class="footer text-muted text-center">
+        <hr/>
+        <p>
+          From <a href="http://bbcnewslabs.co.uk">BBC News Labs</a>
+        </p>
+      </div>
+    </div>
+
+    <%- js('application') %>
+  </script>
+  </body>
+</html>

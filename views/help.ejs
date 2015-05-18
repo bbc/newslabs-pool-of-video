@@ -1,0 +1,91 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2><i class="fa fa-fw fa-question-circle"></i> Help and Documentation</h2>
+    <hr/>
+    <p class="lead">
+      This is a simple service to hold metadata for videos and make it searchable.
+    </p>
+    <p class="lead">
+      It is accessible via this website and via a REST based JSON API.
+    </p>
+    <h2>API Documentation</h2>
+    <h3>Video object schema</h3>
+    <p>
+      The current video object schema is impractically simple for almost all use cases. It is intended to provide a starting point for discussion and to iterate around.
+    </p>
+<pre>url: { type: String, required: true },
+name: { type: String, required: true },
+description: { type: String },
+tags: [ String ],
+created: { type: Date, default: Date.now },
+updated: { type: Date, default: Date.now }</pre>
+    <h3>HTTP GET /videos/</h3>
+    <h5 class="text-muted">DESCRIPTION</h5>
+    <p>
+      Returns an array of video objects, a count for total the number of videos available and the total number of pages you can iterate though.
+    </p>
+    <h5 class="text-muted">PARAMETERS</h5>
+    <ul>
+      <li><strong>page</strong> Only 100 results are returned at a time. You can page through results by specfying a page number greater than one.</li>
+    </ul>
+    
+    <h3>HTTP POST /videos/add</h3>
+    <h5 class="text-muted">DESCRIPTION</h5>
+    <p>
+      Adds a new video to the index, with the specified metadata.
+    </p>
+    <h5 class="text-muted">PARAMETERS</h5>
+    <ul>
+      <li><strong>url</strong> The URL of the video.</li>
+      <li><strong>name</strong> A name for the video.</li>
+      <li><strong>description</strong> A description for the video (optional).</li>
+      <li><strong>tags</strong> A comma seperated list of tags for the video (optional).</li>
+    </ul>
+    
+    <h3>HTTP GET /videos/{ video id }</h3>
+    <h5 class="text-muted">DESCRIPTION</h5>
+    <p>
+      Returns the details for a single video.
+    </p>
+    <h5 class="text-muted">EXAMPLE URL</h5>
+    <p>
+      /videos/555a0d9aa3c5ca534894d6fc
+    </p>
+    
+    <h3>HTTP POST /videos/edit/{ video id }</h3>
+    <h5 class="text-muted">DESCRIPTION</h5>
+    <p>
+      Updates the video object specified with new properties.
+    </p>
+    <h5 class="text-muted">EXAMPLE URL</h5>
+    <p>
+      /videos/edit/555a0d9aa3c5ca534894d6fc
+    </p>
+    <h5 class="text-muted">PARAMETERS</h5>
+    <ul>
+      <li><strong>url</strong> The URL of the video.</li>
+      <li><strong>name</strong> A name for the video.</li>
+      <li><strong>description</strong> A description for the video (optional).</li>
+      <li><strong>tags</strong> A comma seperated list of tags for the video (optional).</li>
+    </ul>
+    
+    <h3>HTTP GET /videos/search</h3>
+    <h5 class="text-muted">DESCRIPTION</h5>
+    <p>
+      Returns a list of up to 100 videos matching a provided query.
+    </p>
+    <p>
+      This initial implimentation searches name, description and tags but always returns results sorted by
+      most recently uploaded. Due to the way it decides which terms to use for indexing it may not match queries for common
+      words you would expect it do. Paging, sorting and search syntax is not yet supported.
+    </p>
+    <h5 class="text-muted">PARAMETERS</h5>
+    <ul>
+      <li><strong>q</strong> A query string to search on.</li>
+    </ul>
+    <h5 class="text-muted">EXAMPLE URL</h5>
+    <p>
+      /videos/search/?q=Royal+Baby
+    </p>
+  </div>
+</div>

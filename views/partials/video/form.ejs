@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label class="control-label">Name</label>
+  <input name="name" type="text" class="form-control input-lg" autocomplete="off" value="<%= (typeof(video) != 'undefined') ? video.name : '' %>"/>
+</div>
+<div class="form-group">
+  <label class="control-label">URL</label>
+  <input name="url" type="text" class="form-control input-lg" autocomplete="off" value="<%= (typeof(video) != 'undefined') ? video.url : '' %>"/>
+</div>
+<div class="form-group">
+  <label class="control-label">Description</label>
+  <textarea name="description" type="text" rows="5" class="form-control" autocomplete="off"><%= (typeof(video) != 'undefined') ? video.description : '' %></textarea>
+</div>
+<div class="form-group">
+  <label class="control-label">Tags</label>
+  <input name="tags" type="text" data-role="tagsinput" class="form-control" placeholder="Add tag..." autocomplete="off" value="<%= (typeof(video) != 'undefined') ? video.tags : '' %>"/>
+</div>

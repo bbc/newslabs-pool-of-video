@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if (videos.length == 0) {%>
+    <p class="lead text-center">
+      <br/>
+      No videos match your query
+    </p>
+    <% } else { %>
+    <% if (videos.length < 100) { %>
+    <h2 class="text-center">
+      <%= videos.length %> videos matched <em>"<%= query %>"</em>
+    </h2>
+    <% } else { %>
+    <h2 class="text-center">
+      <%= videos.length %> or more videos matched <em>"<%= query %>"</em>
+    </h2>
+    <% } %>
+    <br/>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr class="text-muted">
+          <th>Video name</th>
+          <th class="text-right">Date uploaded</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% videos.forEach(function(video) { %>
+        <tr href="/videos/<%= video.id %>">
+          <td><a href="/videos/<%= video.id %>"><h4 style="margin: 5px 0;"><i class="fa fa-fw fa-film"></i> <%= video.name %></h4></a></td>
+          <td class="text-right text-muted">
+            <i class="fa fa-fw fa-clock-o"></i> <time class="timeago" datetime="<%= video.created.toISOString() %>"><%= video.created.toDateString() %></time>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } %>
+  </div>
+</div>

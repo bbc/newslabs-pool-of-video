@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2><i class="fa fa-fw fa-lg fa-film"></i> Editing video metadata</h2>
+        <hr/>
+        <form action="/videos/edit/<%= video.id %>" method="POST" data-validator="true">
+          <div class="row">
+            <div class="col-md-5 col-md-push-7 col-lg-push-7">
+              <video controls src="<%= video.url %>" style="width: 100%;"></video>
+            </div>
+            <div class="col-md-7 col-md-pull-5 col-lg-pull-5">
+              <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+              <% include ../partials/video/form %>
+            </div>
+          </div>
+          <div class="form-group text-right">
+            <a class="btn btn-lg btn-default" href="/videos/<%= video.id %>"><i class="fa fa-lg fa-fw fa-ban"></i> Cancel</a>
+            <button type="submit" class="btn btn-lg btn-primary"><i class="fa fa-lg fa-fw fa-check"></i> Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
