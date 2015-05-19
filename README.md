@@ -1,4 +1,6 @@
-# Pool of Video - A searchable index of videos
+# Pool of Video
+
+"A searchable index of videos"
 
 A simple service to hold metadata for videos and make it searchable.
 

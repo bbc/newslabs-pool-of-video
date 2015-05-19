@@ -7,8 +7,11 @@
             <h2 class="pull-left"><i class="fa fa-fw fa-lg fa-film"></i>&nbsp;</h2>
           </div>
           <div class="media-body">
-            <h2><%= video.name %></h2>
-            <a class="text-muted" href="<%= video.url %>"><%= video.url %></a>
+            <h2 style="margin-bottom: 0;"><%= video.name %></h2>
+            <p>
+            <span class="text-muted"><i class="fa fa-fw fa-clock-o"></i> Added <time class="timeago" datetime="<%= video.created.toISOString() %>"><%= video.created.toDateString() %></time></span>
+            <p/>
+            <a class="text-muted" href="<%= video.url %>"><i class="fa fa-lg fa-fw fa-download"></i> <%= video.url %></a>
           </div>
         </div>
         <hr/>

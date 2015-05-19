@@ -26,7 +26,16 @@
       <tbody>
       <% videos.forEach(function(video) { %>
         <tr href="/videos/<%= video.id %>">
-          <td><a href="/videos/<%= video.id %>"><h4 style="margin: 5px 0;"><i class="fa fa-fw fa-film"></i> <%= video.name %></h4></a></td>
+          <td>
+            <div class="media">
+              <div class="media=left">
+                <a href="/videos/<%= video.id %>"><h4 class="pull-left" style="margin: 5px 5px 0 0;"><i class="fa fa-fw fa-film"></i></h4></a>
+              </div>
+              <div class="media-body">
+                <a href="/videos/<%= video.id %>"><h4 style="margin: 5px 0;"><%= video.name %></h4></a>
+              </div>
+            </div>
+          </td>
           <td class="text-right text-muted">
             <i class="fa fa-fw fa-clock-o"></i> <time class="timeago" datetime="<%= video.created.toISOString() %>"><%= video.created.toDateString() %></time>
           </td>
