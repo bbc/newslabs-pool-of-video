@@ -19,7 +19,7 @@ exports.getVideos = function(req, res) {
     .exec(function (err, videos) {
       Video.count(query, function(err, count) {
         if (req.xhr) {
-          return res.json({ videos: video, numberOfVideos: count, numberOfPages: Math.ceil(count / resultsPerPage) });
+          return res.json({ videos: videos, numberOfVideos: count, numberOfPages: Math.ceil(count / resultsPerPage) });
         } else {
           return res.render('videos', { title: res.locals.title + " - Videos",
                                  videos: videos,
